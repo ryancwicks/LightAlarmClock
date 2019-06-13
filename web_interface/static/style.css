@@ -2,14 +2,45 @@
 
 }
 
+
+/* Navigation Bar Settings. */
 nav li {
-    display: inline;
+    float: left;
+    padding: 14px 16px;
 }
 
-.active li nav {
+nav li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: gray;
+}
+
+nav li:hover {
+    background-color: lightblue;
 
 }
 
-#navigation_list {
-    
+nav li {
+    border-right: 1px solid white;
+}
+
+nav li:last-child {
+    border-right: none;
+    float: right;
+}
+
+nav ul .active {
+    background-color: black;
+    color: white;
 }

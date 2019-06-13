@@ -3,15 +3,15 @@
 function LightClockPageControls(api_instance) {
 
     let api = api_instance;
+    let nav_bar_elements;
 
     //Fill the page contents once the DOM is loaded
     window.addEventListener("DOMContentLoaded", () => {
-
         while (document.body.firstChild) {
             document.body.removeChild(document.body.firstChild);
         }
 
-        generateNAVBar();
+        nav_bar_elements = generateNAVBar();
 
     });
 
@@ -19,6 +19,7 @@ function LightClockPageControls(api_instance) {
      * Generates the nav bar and adds it to the body of the document.
      */
     function generateNAVBar() {
+
         const ul_id = "navigation_list";
         let ul = document.createElement("UL");
         ul.id = ul_id;
@@ -26,12 +27,18 @@ function LightClockPageControls(api_instance) {
 
         function createNavElement(value, click_function) {
             let li = document.createElement("LI");
-            li.innerHTML = value;
+            let a = document.createElement("A");
+            a.innerHTML = value;
+            a.href = "#";
+            a.addEventListener("click", () => {
+                setActive();
+                click_function();
+            });
             li.addEventListener("click", () => {
                 setActive();
                 click_function();
             });
-
+            li.appendChild(a);
             ul.appendChild(li);
 
             /**
@@ -53,6 +60,7 @@ function LightClockPageControls(api_instance) {
             };
 
             return {
+                element: a,
                 get active() {
                     if (li.classList.contains("active")) {
                         return true;
@@ -70,10 +78,15 @@ function LightClockPageControls(api_instance) {
             nav_elements.set_time = createNavElement("Time", () => { });
             nav_elements.alarms = createNavElement("Alarms", () => { });
             nav_elements.led_control = createNavElement("LED Control", () => { });
+            nav_elements.about = createNavElement("Debug", () => { });
 
             nav_bar.appendChild(ul);
             document.body.appendChild(nav_bar);
+
+            nav_elements.home.element.click();
         }
+
+        return nav_elements;
     };
 
     function drawHome() {
