@@ -44,3 +44,11 @@ nav ul .active {
     background-color: black;
     color: white;
 }
+
+@media screen and (max-width: 600px) {
+  nav ul, nav li, nav li:last-child {
+      float: none;
+      width: auto;
+      border: none;
+    }
+}

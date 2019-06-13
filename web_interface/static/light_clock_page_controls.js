@@ -4,6 +4,8 @@ function LightClockPageControls(api_instance) {
 
     let api = api_instance;
     let nav_bar_elements;
+    let contents_element;
+
 
     //Fill the page contents once the DOM is loaded
     window.addEventListener("DOMContentLoaded", () => {
@@ -12,6 +14,9 @@ function LightClockPageControls(api_instance) {
         }
 
         nav_bar_elements = generateNAVBar();
+
+        content_element = document.createElement("DIV");
+        content_element.id = "content";
 
     });
 
