@@ -6,6 +6,8 @@ function LightClockPageControls(api_instance) {
     let nav_bar_elements;
     let contents_element;
 
+    let pages;
+
 
     //Fill the page contents once the DOM is loaded
     window.addEventListener("DOMContentLoaded", () => {
@@ -13,10 +15,17 @@ function LightClockPageControls(api_instance) {
             document.body.removeChild(document.body.firstChild);
         }
 
+        pages.home = setupHome();
+        pages.time = setupTime();
+        pages.alarm = setupAlarms();
+        pages.leds = setupLEDControls();
+        pages.debug = setupDebug();
         nav_bar_elements = generateNAVBar();
 
-        content_element = document.createElement("DIV");
-        content_element.id = "content";
+        contents_element = document.createElement("DIV");
+        contents_element.id = "content";
+
+        nav_bar_elements.home.element.click();
 
     });
 
@@ -88,15 +97,30 @@ function LightClockPageControls(api_instance) {
             nav_bar.appendChild(ul);
             document.body.appendChild(nav_bar);
 
-            nav_elements.home.element.click();
         }
 
         return nav_elements;
     };
 
-    function drawHome() {
+    function setupHome() {
 
     };
+
+    function setupTime() {
+
+    };
+
+    function setupAlarms() {
+
+    };
+
+    function setupLEDControls() {
+
+    }
+
+    function setupDebug() {
+
+    }
 
 
 
