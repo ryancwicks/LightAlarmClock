@@ -1,0 +1,5 @@
+#KICAD backup files.
+*bak
+
+venv/
+.vscode/
