@@ -22,9 +22,6 @@ function LightClockPageControls(api_instance) {
         pages.debug = setupDebug();
         nav_bar_elements = generateNAVBar();
 
-        contents_element = document.createElement("DIV");
-        contents_element.id = "content";
-
         nav_bar_elements.home.element.click();
 
     });
@@ -103,26 +100,63 @@ function LightClockPageControls(api_instance) {
     };
 
     function setupHome() {
+        let home_page = new PageView("Home");
 
+        return home_page;
     };
 
     function setupTime() {
+        let time_page = new PageView("Time");
 
+        return time_page;
     };
 
     function setupAlarms() {
+        let alarm_page = new PageView("Alarms");
 
+        return alarm_page;
     };
 
     function setupLEDControls() {
+        let led_controls_page = new PageView("LED Controls");
 
+        return led_controls_page;
     }
 
     function setupDebug() {
+        let debug_page = new PageView("Debug");
 
+        return debug_page;
     }
 
+    function PageView(name) {
+        if (this instanceof PageView === false) {
+            return new PageView(name);
+        }
 
+        this.name = name;
+        this.containing_div = document.createElement("DIV");
+    };
+
+    PageView.prototype.draw = function () {
+        const contents_id = "content";
+        let contents_div = document.getElementById(contents_id);
+        if (!contents_div) {
+            contents_div = document.createElement("DIV");
+            contents_div.id = contents_id;
+            document.body.appendChild(contents_div);
+        }
+
+        while (contents_div.firstChild()) {
+            contents_div.removeChild(contents_div.firstChild());
+        }
+
+        contents_div.appendChild(this.containing_div);
+    };
+
+    PageView.prototype.updateTime = function () {
+        //override this if you actually have elements in the page that read the time.
+    };
 
     return {
 
