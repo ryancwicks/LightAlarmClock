@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>ESP32 Notes</title>
+    <meta name="description" content="Light Alarm Clock">
+    <meta name="author" content="Ryan Wicks">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <h1>Light Alarm Clock Project - ESP32 Notes</h1>
+
+    <p>
+        To satisfy the project requirements for wifi access and control, I decided to use the ESP32 because it seems to
+        be easy to
+        program using the Arduino environment, has the capacitive touch sensors I need built in, and is incredibly
+        cheap.
+    </p>
+
+    <p>
+        I bought a DOIT DevKit V1 from Banggood on sale for 6 USD. Unfortunately, it arrived not working. Their was a
+        short on the 3.3V
+        side of the voltage regulator. Fortunately, the <a href="esp32_schematic.pdf">schematic</a> for this board was
+        available, and I was able to find the source of the
+        problem and fix it without having to order another one and wait a few weeks to get it from China. In this case,
+        the 100 uF electrolytic
+        capacitor had failed shorted. Removing it solved the problem. I'll order a replacement in my next Digikey order.
+    </p>
+
+    <h2>Initial Tests</h2>
+    <p>
+        I installed the latest version of the Arduino environment and followed the directions on the <a
+            href="https://github.com/espressif/arduino-esp32">Espressif ESP32 Github
+            page</a> to install the Arduino toolchain.
+    </p>
+
+    <p>
+        To program this board, you have to press and hold the boot button for about a second before the code can flash.
+        Uploading the blink LED example works, although
+        you have to change the LED pin to pin two on this board (the numbers in the sketch appear to match the GPIO
+        numbers on the board/schematic).
+    </p>
+
+    <p>
+        I also set up the HelloServer example, and was able to connect to the test server when I changed the Wifi mode
+        from WIFI_STA to WIFI_AP_STA.
+    </p>
+
+
+
+</body>
+
+</html>
