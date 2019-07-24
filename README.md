@@ -2,4 +2,4 @@
 
 Design (software and hardware) for a light alarm clock with a web interface for control.
 
-## Design Goals
+[Documentation Site](https://ryancwicks.github.io/LightAlarmClock/)

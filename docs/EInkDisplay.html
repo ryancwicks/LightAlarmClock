@@ -36,11 +36,27 @@
             <li><a
                     href="https://www.waveshare.com/product/modules/oleds-lcds/e-paper/4.2inch-e-paper-module.htm">website</a>
             </li>
-            <li><a href="https://www.waveshare.com/w/upload/2/20/4.2inch-e-paper-module-user-manual-en.pdf">Wiki</a>
+            <li><a href="https://www.waveshare.com/wiki/4.2inch_e-Paper_Module">Wiki</a></li>
+            <li><a href="https://www.waveshare.com/w/upload/2/20/4.2inch-e-paper-module-user-manual-en.pdf">Manual</a>
             </li>
-            <li><a href="https://github.com/waveshare/e-Paper">Manual</a></li>
+            <li><a href="https://github.com/waveshare/e-Paper">Waveshare GitHub</a></li>
         </ul>
     </p>
+
+    <p>To test the board upon first reciept, I used the Arduino library manager to download the GxEPD2 library. Looking
+        at the example Gx_EPD2.ino, there is a suggested wiring for the ESP32 boards:</p>
+
+    <code>
+        // mapping suggestion for ESP32, e.g. LOLIN32, see .../variants/.../pins_arduino.h for your board
+        // NOTE: there are variants with different pins for SPI ! CHECK SPI PINS OF YOUR BOARD
+        // BUSY -> 4, RST -> 16, DC -> 17, CS -> SS(5), CLK -> SCK(18), DIN -> MOSI(23), GND -> GND, 3.3V -> 3.3V
+    </code>
+
+    <p>Further down in the example, under the ESP32 ifdef, I uncommented the line:</p>
+
+    <code>GxEPD2_BW<GxEPD2_420, GxEPD2_420::HEIGHT> display(GxEPD2_420(/*CS=5*/ SS, /*DC=*/ 17, /*RST=*/ 16, /*BUSY=*/ 4));</code>
+
+
 
 
 
