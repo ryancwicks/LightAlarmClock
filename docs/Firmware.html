@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Firmware</title>
+    <meta name="description" content="Light Alarm Clock">
+    <meta name="author" content="Ryan Wicks">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <h1>Light Alarm Clock Project - Firmware</h1>
+
+    <p>There are several different components to the light alarm clock firmware:</p>
+    <ul>
+        <li>
+            Web Server
+            <ul>
+                <li>WiFi Hotspot (setting up network).</li>
+                <li>Web Server serving configuration pages.</li>
+            </ul>
+        </li>
+        <li>RTC/Alarm Control</li>
+        <li>Light Control</li>
+        <li>
+            File System
+            <ul>
+                <li>Save wifi info persistently</li>
+                <li>Save static web pages</li>
+                <li>Load static web pages onto device over serial</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>File System</h2>
+
+    <p>I'll use the FFAT file system to store web pages and persistent data on the EEPROM. Be sure to set the 
+        partition scheme to "Default with FFat" in the tools menu, or you won't be able to load the file system.
+        If you don't have this option in the tools menu (the DOIT boards don't), you'll have to manually backup 
+        the defaults.csv and copy over it using the defaults_ffat.csv file found in your Arduino settigs under 
+        <code>~/.arduino15/packages/esp32/hardware/esp32/1.0.2/tools/partitions</code> (on linux, anyway).
+    </p>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>E-Ink Display</title>
+    <meta name="description" content="Light Alarm Clock">
+    <meta name="author" content="Ryan Wicks">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <h1>Light Alarm Clock Project - LED Boards</h1>
+
+    <p>Since my original plan was to create a single large board for all the circuit components to mount to, I bought
+        100 WS8212 addressable LED's. After pricing out large circuit boards, I decided to split the LED's into multiple
+        single boards. In retrospect, it would have been much less work to buy strips or individual boards.
+    </p>
+
+    <h2>Testing the LED's</h2>
+
+    <p>To test each individual LED, an Arduino and the WS2812 LED example program from the Adafruit NeoPixel library was used to drive two LED's in series.
+        A known working LED was used as the end LED in the chain, and every LED was tested to make sure the colours
+        changed properly and the data was passed down the chain.</p>
+</body>
+
+</html>

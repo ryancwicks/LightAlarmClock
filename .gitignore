@@ -4,3 +4,7 @@
 venv/
 .vscode/
 output_files/
+
+*.dxf
+*.svg
+

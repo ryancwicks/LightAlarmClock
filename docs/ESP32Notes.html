@@ -40,6 +40,16 @@
             page</a> to install the Arduino toolchain.
     </p>
 
+    <p>To summarize above:</p>
+    <ul>
+        <li>Open the Arduino preferences (or edit the arduino preferences file)</li>
+        <li>Copy the address of the ESP32 github page into the additional boards: <code>https://dl.espressif.com/dl/package_esp32_index.json</code></li>
+        <li>Install the ESP32 board in the Arduino board manager.</li>
+        <li>Select the DOIT ESP32 DEVKIT V1 board from the board selection tool (for the board I bought).</li>
+    </ul>
+
+    <p>I also needed to install the python pyserial package as it's required by the ESP32 build tools.</p>
+    
     <p>
         To program this board, you have to press and hold the boot button for about a second before the code can flash.
         Uploading the blink LED example works, although
@@ -51,6 +61,7 @@
         I also set up the HelloServer example, and was able to connect to the test server.
     </p>
 
+    <p>One thing I found out when trying to set up the GPIO's is that the pin number matches the GPIO number, not the actual pin number on the board output. (ie. the DOIT DEVKIT uses GPIO2 for the onboard LED, and not pin 2</p>
 
 
 </body>
