@@ -1,5 +1,7 @@
 'use strict';
 
+export { LightClockAPI };
+
 function LightClockAPI() {
 
     const requests = {

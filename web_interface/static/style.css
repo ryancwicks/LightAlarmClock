@@ -53,3 +53,46 @@ nav ul .active {
       border: none;
     }
 }
+
+/* Wifi setup page */
+#modal_login_box {
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 60%; /* Full width */
+  height: 80%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  padding-top: 60px;
+  margin: 5% auto 15% auto;
+}
+
+/* Full-width input fields */
+#modal_login_box select, #modal_login_box input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Modal Content/Box */
+#wifi_input_div {
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/** Button styles **/
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}

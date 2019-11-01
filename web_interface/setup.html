@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Light Alarm Clock Wifi Setup</title>
+    <meta name="description" content="Light Alarm Clock Setup">
+    <meta name="author" content="Ryan Wicks">
+
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="static/style.css">
+
+    <script defer>
+        let submit_button;
+        let network_select;
+        let password_box;
+        let message_box;
+        window.addEventListener("load", () => {
+            submit_button = document.getElementById("submit_button");
+            network_select = document.getElementById("essid_box");
+            password_box = document.getElementById("wifi_password_box");
+            message_box = document.getElementById("message_box");
+
+            async function findWifi() {
+                let response;
+                let json_response;
+                try {
+                    response = await fetch("/api/get_wifi_essid");
+                    json_response = await response.json();
+                } catch (e) {
+                    console.log(e.what());
+                    return;
+                }
+
+            }
+
+            async function submit() {
+                let response;
+                let json_response;
+
+                if (network_select.selectedIndex === -1) {
+                    return;
+                }
+                try {
+                    response = await fetch("/api/submit_credentials", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            essid: network_select[network_select.selectedIndex].value,
+                            password: password_box.value, //BADBADBAD !!! Fix this.
+                        }),
+                    })
+                } catch (e) {
+                    console.log(e.what());
+                }
+            }
+
+            function updateMessage(message) {
+                while (message_box.firstChild()) {
+                    message_box.removeChild(message_box.firstChild());
+                }
+                message_box.innerHTML(message);
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="modal_login_box">
+        <h1>Wifi Setup Page</h1>
+
+        <div id="wifi_input_div">
+            <form>
+                <label for="essid_box">
+                    <h2>Network</h2>
+                </label>
+                <select type="" id="essid_box" name="essid_box" placeholder="Loading available networks..." required>
+                    <option value="essid1">essid1</option>
+                    <option value="essid2">essid_2</option>
+                    <option>essid3</option>
+                </select>
+                <label for="wifi_password_box">
+                    <h2>Password</h2>
+                </label>
+                <input type="password" id="wifi_password_box" name="wifi_password_box" required>
+                <div id="message_box">
+
+                </div>
+                <button id="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

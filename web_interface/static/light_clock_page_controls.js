@@ -1,6 +1,9 @@
 "use strict";
 
-function LightClockPageControls(api_instance) {
+import { LightClockAPI } from "./static/light_clock_api.js";
+export { LightClockPageControls };
+
+function LightClockPageControls() {
 
     let api = api_instance;
     let nav_bar_elements;
