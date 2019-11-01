@@ -13,7 +13,7 @@ void handleSetupRoot() {
 }
 
 void handleSubmitCredentials() {
-    server.send(200, "text/json", "{ success: True }");
+    server.send(200, "text/json", "{ success: False, message: 'Method not implemented.' }");
 }
 
 void handleNotFound() {
